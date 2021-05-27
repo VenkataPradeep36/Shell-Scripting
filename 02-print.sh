@@ -37,4 +37,9 @@ echo -e "\tA news anchor's attempt to report on Cyclone Yaas and its
 # Cyan     36
 
 
-echo -e "\e[31mVenkata Pradeep"
+echo -e "\e[31mVenkata Pradeep\e[0m"
+echo normal text in no color
+echo -e "\e[33mSurendra babu\e[0m"
+
+#synatx: echo -e "\e[COLORmMessage\e[0m"
+# 0 is color disable
