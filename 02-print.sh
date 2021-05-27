@@ -24,3 +24,17 @@ echo -e "\tA news anchor's attempt to report on Cyclone Yaas and its
          In such inclement weather conditions, the reporter for Naxatra News was
          surprised to see people out and about - and questioned one man about why he
           chose to step out in the midst of a cyclone."
+
+## print in colours
+#syntax:echo -e "\e[COLORmMessage"
+
+# COLORS  CODE
+# RED      31
+# Green    32
+# Yellow   33
+# Blue     34
+# Magenta  35
+# Cyan     36
+
+
+echo -e "\e[31mVenkata Pradeep"
