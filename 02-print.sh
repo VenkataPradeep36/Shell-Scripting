@@ -11,4 +11,4 @@ echo Tommy
 # echo to print multiple lines(/n is the new line sequence)
 # syntax: echo -e "line1/nline2"
 
-echo -e "Hello,/n welcome to my world"
+echo -e "Hello,/nwelcome to my world"
