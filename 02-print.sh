@@ -15,7 +15,8 @@ echo -e "Hello,\n welcome to my world"
 
 echo -e "\nHello,\n\nWelcome"
 
-echo -e "A news anchor's attempt to report on Cyclone Yaas and its
+#syntax: \t to print a tab space
+echo -e "\tA news anchor's attempt to report on Cyclone Yaas and its
         impact in Odisha quickly devolved into a comedy segment of sorts
         when the man he stopped for an interview gave him a brutally honest
         reply to his query. Parts of Odisha have been experiencing high-speed winds          and heavy rains due to the "very severe cyclonic storm" Yaas.
