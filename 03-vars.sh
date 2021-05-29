@@ -8,6 +8,6 @@ echo Course Name = $COURSE
 
 #DATE=2021-05-29
 
-#DATE=$(%F)
+#DATE=$(date +%F)
 
 echo Good Morning, Today date is $DATE
