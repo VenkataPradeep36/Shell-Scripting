@@ -15,5 +15,5 @@ echo $2
 
 ## All the arguments parsed
 
-echo$*
-echo$#
+echo $*
+echo $#
