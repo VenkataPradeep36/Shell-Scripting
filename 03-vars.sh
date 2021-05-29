@@ -14,3 +14,6 @@ echo Good Morning, Today date is $DATE
 
 NO_OF_USERS=$(who | wc -l)
 echo No of users logged in system =$NO_OF_USERS
+
+ADD=$((2+5))
+echo add=$ADD
