@@ -17,4 +17,6 @@ echo $2
 
 echo $*
 echo $@
-#echo $#
+
+## No of arguments
+echo $#
