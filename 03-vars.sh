@@ -17,3 +17,6 @@ echo No of users logged in system =$NO_OF_USERS
 
 ADD=$((2+5))
 echo add=$ADD
+
+BIG=$((2-5+10/6*100))
+echo big=$BIG
