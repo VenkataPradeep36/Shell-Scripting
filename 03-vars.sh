@@ -11,3 +11,6 @@ echo Course Name = $COURSE
 DATE=$(date +%F)
 
 echo Good Morning, Today date is $DATE
+
+NO_OF_USERS=$(who | wc -l)
+echo No of users logged in system =$NO_OF_USERS
