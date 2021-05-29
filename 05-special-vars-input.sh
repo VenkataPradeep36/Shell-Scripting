@@ -10,3 +10,10 @@ echo $1
 ## To get the second argument
 
 echo $2
+
+## Like wise you can still go on upto $n
+
+## All the arguments parsed
+
+echo$*
+echo$#
