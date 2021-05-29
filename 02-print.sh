@@ -37,4 +37,4 @@ echo -e "\e[33mSurendra babu\e[0m"
 
 #synatx: echo -e "\e[COLORmMessage\e[0m"
 # 0 is color disable
-# Youl will find extra colour codes in Internet
+# You will find extra colour codes in Internet
