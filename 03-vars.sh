@@ -21,4 +21,4 @@ echo add=$ADD
 BIG=$((2-5+10/6*100))
 echo big=$BIG
 
-echo Varibale form command line X=
+echo Varibale form command line X=$x
