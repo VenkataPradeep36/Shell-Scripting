@@ -1,5 +1,5 @@
 cloud:
 	@echo Using  cloud
-Aws:
+aws:
 	@echo Using aws services
 
