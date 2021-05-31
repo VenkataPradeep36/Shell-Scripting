@@ -8,7 +8,7 @@ mongodb:	## Install MongoDB Component
 catalogue:	## Install Catalogue Component
 	@sh components/catalogue.sh
 
-redis:	## Install Redis Component
+redis:		## Install Redis Component
 	@sh components/redis.sh
 
 user:		## Install User Component
