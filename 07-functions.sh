@@ -8,7 +8,7 @@ SAMPLE(){
   echo  First argument =$1
 }
 
-## Access the function
+## Access the function in both ways
 CLOUD=aws
 SAMPLE ll
 SAMPLE $1
