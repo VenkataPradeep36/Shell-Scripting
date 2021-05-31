@@ -1,3 +1,5 @@
+help:
+	@echo
 cloud:
 	@echo Using  cloud
 aws:
