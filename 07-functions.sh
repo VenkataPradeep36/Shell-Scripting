@@ -11,4 +11,5 @@ SAMPLE(){
 ## Access the function
 CLOUD=aws
 SAMPLE ll
+SAMPLE $1
 echo value for the server =$SERVER
