@@ -13,5 +13,5 @@ SAMPLE(){
 CLOUD=aws
 SAMPLE ll
 SAMPLE $1
-Exit satus of sample function = $?
+echo Exit satus of sample function = $?
 echo value for the server =$SERVER
