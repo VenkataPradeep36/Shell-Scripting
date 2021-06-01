@@ -8,7 +8,7 @@ HEAD "Installing Nginx\t"
 yum install nginx -y &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Download the HTDOCS\t\"
+HEAD "Download the HTDOCS\t"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
 
