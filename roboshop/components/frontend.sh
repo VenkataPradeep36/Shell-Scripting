@@ -8,15 +8,15 @@ HEAD "Installing Nginx\t"
 yum install nginx -y &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Download the HTDOCS\t"
+HEAD "Download the HTDOCS\t\"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Delete the old HTML Docs"
+HEAD "Delete the old HTML Docs\t"
 rm -rf /usr/share/nginx/html/*
 STAT $?
 
-HEAD "Extract the Downloaded content"
+HEAD "Extract the Downloaded content\t"
 unzip -d /usr/share/nginx/html /tmp/frontend.zip &>>/tmp/roboshop.log
 mv /usr/share/nginx/html/frontend-main/* /usr/share/nginx/html/. &>>/tmp/roboshop.log
 mv /usr/share/nginx/html/static/* /usr/share/nginx/html/. &>>/tmp/roboshop.log
@@ -24,10 +24,10 @@ STAT $?
 
 
 HEAD "Update Nginx configuration"
-mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
+mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
-HEAD "Start Nginx"
+HEAD "Start Nginx\t\t"
 systemctl restart nginx &>>/tmp/roboshop.log
 systemctl enable nginx &>>/tmp/roboshop.log
 STAT $?
