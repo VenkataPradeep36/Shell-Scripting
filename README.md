@@ -10,3 +10,9 @@
 8. Loops
 
 ###
+
+UNIX-> SH, KSH, CSH
+
+LINUX-> BASH(Born Agin Shell) {SH + KSH + CSH}
+
+BASH is default  in all Linux os
