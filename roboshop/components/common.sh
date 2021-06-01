@@ -3,7 +3,7 @@ HEAD(){
 }
 
 STAT(){
-  if[ $1 -eq 0]; then
+  if[ $1 -eq 0 ]; then
     echo -e "\e[1;32m done\e[0m"
   else
       echo -e "\e[1;31m Fail\e[0m"
