@@ -3,7 +3,8 @@
 source components/common.sh
 
 ## Deleting the previous log content before executing
-rm -f tmp/roboshop.log
+rm -f /tmp/roboshop.log
+
 HEAD  "Installing Nginx"
 yum install nginx -y &>>/tmp/roboshop.log
 STAT $?
