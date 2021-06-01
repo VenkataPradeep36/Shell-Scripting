@@ -4,15 +4,15 @@ source components/common.sh
 ## Deleting the previous log content before executing
 rm -f /tmp/roboshop.log
 
-HEAD "Installing Nginx\t"
+HEAD "Installing Nginx\t\t"
 yum install nginx -y &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Download the HTDOCS\t"
+HEAD "Download the HTDOCS\t\t"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Delete the old HTML Docs"
+HEAD "Delete the old HTML Docs\t"
 rm -rf /usr/share/nginx/html/*
 STAT $?
 
@@ -23,11 +23,11 @@ mv /usr/share/nginx/html/static/* /usr/share/nginx/html/. &>>/tmp/roboshop.log
 STAT $?
 
 
-HEAD "Update Nginx configuration"
+HEAD "Update Nginx configuration\t"
 mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
-HEAD "Start Nginx\t\t"
+HEAD "Start Nginx\t\t\t"
 systemctl restart nginx &>>/tmp/roboshop.log
 systemctl enable nginx &>>/tmp/roboshop.log
 STAT $?
