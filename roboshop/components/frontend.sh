@@ -12,11 +12,11 @@ HEAD "Download the HTDOCS\t"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Delete the old HTML Docs\t"
+HEAD "Delete the old HTML Docs"
 rm -rf /usr/share/nginx/html/*
 STAT $?
 
-HEAD "Extract the Downloaded content\t"
+HEAD "Extract the Downloaded content"
 unzip -d /usr/share/nginx/html /tmp/frontend.zip &>>/tmp/roboshop.log
 mv /usr/share/nginx/html/frontend-main/* /usr/share/nginx/html/. &>>/tmp/roboshop.log
 mv /usr/share/nginx/html/static/* /usr/share/nginx/html/. &>>/tmp/roboshop.log
@@ -33,4 +33,4 @@ systemctl enable nginx &>>/tmp/roboshop.log
 STAT $?
 
 
-##echo -e "\e[32mdone\e[0m"
+## echo -e "\e[32mdone\e[0m"
