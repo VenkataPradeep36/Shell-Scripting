@@ -2,6 +2,9 @@ help:		## Print Help Message
 # @ using this means it is calling shell command
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
+frontend:	## Install Frontend Component
+	@sh components/frontend.sh
+
 mongodb:	## Install MongoDB Component
 	@sh components/mongodb.sh
 
