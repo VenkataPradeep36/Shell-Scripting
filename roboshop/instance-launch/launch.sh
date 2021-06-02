@@ -24,5 +24,5 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
    exit 0
 fi
 
-## To Launch an instance from launch template
+## To Launch an instance from launch template using ID and Version
 aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
