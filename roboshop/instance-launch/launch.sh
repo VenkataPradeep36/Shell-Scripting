@@ -1,7 +1,7 @@
 #!bin/bash
 
 COMPONENT=$1
-## This First agrument is storing in a standard variable which is component
+## This First argument is storing in a standard variable which is component
 
 if [ -z "${COMPONENT}" ]; then
   echo "Component input is needed"
