@@ -23,11 +23,11 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
   echo "Instance already exists!!"
   exit 0
 fi
-
-if [ "${INSTANCE_STATE}" = "pending" ]; then
-  echo "Instance already exists!!"
-  exit 0
-fi
+#
+#if [ "${INSTANCE_STATE}" = "pending" ]; then
+#  echo "Instance already exists!!"
+#  exit 0
+#fi
 
 
 
