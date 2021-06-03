@@ -40,4 +40,4 @@ STAT $?
 HEAD "Load the Schema"
 cd mongodb-main
 mongo < catalogue.js &>>/tmp/roboshop.log && mongo < users.js &>>/tmp/roboshop.log
-STAT$?
+STAT $?
