@@ -24,7 +24,7 @@ STAT $?
 
 HEAD "Start MongoDB service\t\t
 systemctl enable mongod &>>/tmp/roboshop.log
-systemctl start mongod &>>/tmp/roboshop.log
+systemctl restart mongod &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Download Schema from GITHUB\t"
@@ -37,7 +37,7 @@ cd /tmp
 unzip -o mongodb.zip &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Load the Schema\t\t\"
+HEAD "Load the Schema\t\t\"K
 cd mongodb-main
 mongo < catalogue.js &>>/tmp/roboshop.log && mongo < users.js &>>/tmp/roboshop.log
 STAT $?
