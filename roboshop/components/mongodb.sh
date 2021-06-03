@@ -31,12 +31,12 @@ HEAD "Download Schema from GITHUB\t"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
 
-#HEAD "Extract the downloaded archive"
-#cd /tmp
-#unzip -o mongodb.zip &>>/tmp/roboshop.log
-#STAT $?
-#
-#HEAD "Load the Schema\t\t\"
-#cd mongodb-main
-#mongo < catalogue.js &>>/tmp/roboshop.log && mongo < users.js &>>/tmp/roboshop.log
-#STAT $?
+HEAD "Extract the downloaded archive"
+cd /tmp
+unzip -o mongodb.zip &>>/tmp/roboshop.log
+STAT $?
+
+HEAD "Load the Schema\t\t\"
+cd mongodb-main
+mongo < catalogue.js &>>/tmp/roboshop.log && mongo < users.js &>>/tmp/roboshop.log
+STAT $?
