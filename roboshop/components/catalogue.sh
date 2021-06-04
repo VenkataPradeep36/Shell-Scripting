@@ -34,5 +34,8 @@ HEAD " Install NodeJs Dependencies"
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
+## We are giving permissions to user by using command chown and -r represents recursively because its a directory and content  inside should change to this one
 HEAD "Fix permissions to Appp User"
+chown roboshop:roboshop /home/roboshop -R
+STAT $?
 
