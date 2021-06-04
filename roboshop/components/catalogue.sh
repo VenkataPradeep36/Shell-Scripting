@@ -41,7 +41,7 @@ STAT $?
 
 ##Inserting mongodb ip address by using -i command and moving the file
 HEAD "SetUp the SyetemD service file"
-sed -i -e '/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service etc/systemd/system/catalogue.service
+sed -i -e '/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service  && mv /home/roboshop/catalogue/systemd.service etc/systemd/system/catalogue.service
 STAT $?
 
 HEAD "Start the catalogue service"
