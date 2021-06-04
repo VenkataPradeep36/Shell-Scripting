@@ -39,3 +39,12 @@ HEAD "Fix permissions to Appp User"
 chown roboshop:roboshop /home/roboshop -R
 STAT $?
 
+##Inserting mongodb ip address by using -i command and moving the file
+HEAD "SetUp the SyetemD service file"
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service etc/systemd/system/catalogue.service
+STAT $?
+
+HEAD "Start the catalogue service"
+systemctl daemon-reload && systemctl start catalogue &>>/tmp/roboshop.log && systemctl enable catalogue &>>/tmp/roboshop.log
+STAT $?
+
