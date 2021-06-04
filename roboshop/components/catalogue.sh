@@ -18,6 +18,7 @@ else
   STAT $?
 fi
 
+
 HEAD "Download App From GitHub"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
