@@ -26,7 +26,7 @@ STAT $?
 HEAD "Extract the Downloaded Archive"
 ##cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
 cd /home/roboshop
-rm -rf
+rm -rf catalogue
 unzip /tmp/catalogue.zip
 mv catalogue-main catalogue
 cd /home/roboshop/catalogue
