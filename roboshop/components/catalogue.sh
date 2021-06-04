@@ -9,7 +9,14 @@ yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Add RoboShop App USer"
-useradd roboshop &>>/tmp/roboshop.log
+id roboshop &>>/tmp/roboshop.log
+if [ $? -eq o ]; then
+  echo User is already there, so not creating user &>>/tmp/roboshop.log
+  STAT $?
+else
+  useradd roboshop &>>/tmp/roboshop.log
+  STAT $?
+fi
 STAT $?
 
 
@@ -22,7 +29,10 @@ cd /home/roboshop && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalog
 STAT $?
 
 HEAD " Install NodeJs Dependencies"
+## We need to run this as normal user but to avoiding this we using unsafe perm
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
+
+
 
 
