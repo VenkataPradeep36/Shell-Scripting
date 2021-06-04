@@ -12,6 +12,7 @@ HEAD "Add RoboShop App USer"
 useradd roboshop &>>/tmp/roboshop.log
 STAT $?
 
+
 HEAD "Download App From GitHub"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
@@ -23,4 +24,5 @@ STAT $?
 HEAD " Install NodeJs Dependencies"
 cd /home/roboshop/catalogue && npm install &>>/tmp/roboshop.log
 STAT $?
+
 
