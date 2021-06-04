@@ -4,11 +4,11 @@ source components/common.sh
 ## Deleting the previous log content before executing
 rm -f /tmp/roboshop.log
 
-HEAD "Install NodeJs"
+HEAD "Install NodeJs\t\t"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Add RoboShop App USer"
+HEAD "Add RoboShop App USer\t"
 id roboshop &>>/tmp/roboshop.log
 if [ $? -eq 0 ]; then
   echo User is already there, so not creating user &>>/tmp/roboshop.log
@@ -19,7 +19,7 @@ else
 fi
 
 
-HEAD "Download App From GitHub"
+HEAD "Download App From GitHub\t\"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
 
@@ -29,13 +29,13 @@ HEAD "Extract the Downloaded Archive"
 cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
 STAT $?
 
-HEAD " Install NodeJs Dependencies"
+HEAD " Install NodeJs Dependencies\t"
 ## We need to run this as normal user but to avoiding this we using unsafe perm
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
 ## We are giving permissions to user by using command chown and -r represents recursively because its a directory and content  inside should change to this one
-HEAD "Fix permissions to Appp User"
+HEAD "Fix permissions to Appp User\t"
 chown roboshop:roboshop /home/roboshop -R
 STAT $?
 
@@ -44,7 +44,7 @@ HEAD "SetUp the SyetemD service file"
 sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service  && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 STAT $?
 
-HEAD "Start the catalogue service"
+HEAD "Start the catalogue service\t"
 systemctl daemon-reload && systemctl start catalogue &>>/tmp/roboshop.log && systemctl enable catalogue &>>/tmp/roboshop.log
 STAT $?
 
