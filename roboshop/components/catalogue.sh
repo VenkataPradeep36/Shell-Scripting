@@ -17,8 +17,6 @@ else
   useradd roboshop &>>/tmp/roboshop.log
   STAT $?
 fi
-STAT $?
-
 
 HEAD "Download App From GitHub"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>/tmp/roboshop.log
