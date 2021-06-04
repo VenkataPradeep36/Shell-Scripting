@@ -4,11 +4,11 @@ source components/common.sh
 ## Deleting the previous log content before executing
 rm -f /tmp/roboshop.log
 
-HEAD "Install NodeJs\t\t"
+HEAD "Install NodeJs\t\t\t"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Add RoboShop App USer\t"
+HEAD "Add RoboShop App USer\tt"
 id roboshop &>>/tmp/roboshop.log
 if [ $? -eq 0 ]; then
   echo User is already there, so not creating user &>>/tmp/roboshop.log
