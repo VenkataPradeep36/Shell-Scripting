@@ -26,11 +26,12 @@ STAT $?
 HEAD "Extract the Downloaded Archive"
 ##cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
 cd /home/roboshop
-rm -rf catalogue
-unzip /tmp/catalogue.zip
+rm -rf catalogue && unzip /tmp/catalogue.zip
+
 mv catalogue-main catalogue
 cd /home/roboshop/catalogue
 STAT $?
+
 
 HEAD " Install NodeJs Dependencies"
 ## We need to run this as normal user but to avoiding this we using unsafe perm
