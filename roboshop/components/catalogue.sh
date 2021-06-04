@@ -24,7 +24,11 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 STAT $?
 
 HEAD "Extract the Downloaded Archive"
-cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
+##cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
+cd /home/roboshop
+unzip /tmp/catalogue.zip
+mv catalogue-main catalogue
+cd /home/roboshop/catalogue
 STAT $?
 
 HEAD " Install NodeJs Dependencies"
