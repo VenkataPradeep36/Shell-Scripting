@@ -18,5 +18,5 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf
 STAT $?
 
 HEAD "Start Redis Update\t\t\t"
-systemctl enable redis &>>/tmp/roboshop.log && systemctl start redis &>>/tmp/roboshop.log
+systemctl enable redis &>>/tmp/roboshop.log && systemctl restart redis &>>/tmp/roboshop.log
 STAT $?
