@@ -3,6 +3,7 @@
 source components/common.sh
 ## Deleting the previous log content before executing
 rm -f /tmp/roboshop.log
+set-hostname mongodb
 
 HEAD "Setup MongoDB yum repo file\t"
 echo '[mongodb-org-4.2]

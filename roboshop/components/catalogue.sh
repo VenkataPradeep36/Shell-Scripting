@@ -3,6 +3,7 @@
 source components/common.sh
 ## Deleting the previous log content before executing
 rm -f /tmp/roboshop.log
+set-hostname catalogue
 
 HEAD "Install NodeJs\t\t\t"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log

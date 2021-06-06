@@ -3,6 +3,7 @@
 source components/common.sh
 ## Deleting the previous log content before executing
 rm -f /tmp/roboshop.log
+set-hostname frontend
 
 HEAD "Installing Nginx\t\t"
 yum install nginx -y &>>/tmp/roboshop.log
