@@ -29,7 +29,7 @@ HEAD "Extract the Downloaded Archive"
 cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
 STAT $?
 
-HEAD " Install NodeJs Dependencies\t"
+HEAD "Install NodeJs Dependencies\t"
 ## We need to run this as normal user but to avoiding this we using unsafe perm
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?

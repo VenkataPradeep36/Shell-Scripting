@@ -24,6 +24,7 @@ STAT $?
 
 
 HEAD "Update Nginx configuration\t"
+sed 
 mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
