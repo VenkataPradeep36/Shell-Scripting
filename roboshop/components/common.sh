@@ -41,6 +41,9 @@ DOWNLOAD_FROM_GITGUB() {
   HEAD "Download App From GitHub\t"
   curl -s -L -o /tmp/$1.zip "https://github.com/roboshop-devops-project/$1/archive/main.zip" &>>/tmp/roboshop.log
   STAT $?
+  HEAD "Extract the Downloaded Archive"
+  cd /home/roboshop && rm -rf $1 && unzip /tmp/$1.zip &>>/tmp/roboshop.log && mv $1-main $1
+  STAT $?
 }
 
 NODEJS() {
@@ -52,10 +55,6 @@ NODEJS() {
 
   DOWNLOAD_FROM_GITGUB $1
   ## In this its unzipping the file and moving catalogue-main to catalogue, but catalogue dir is already there if you run for second time so by avoiding this we have to remove the content before executing
-
-  HEAD "Extract the Downloaded Archive"
-  cd /home/roboshop && rm -rf $1 && unzip /tmp/$1.zip &>>/tmp/roboshop.log && mv $1-main $1
-  STAT $?
 
   HEAD "Install NodeJs Dependencies\t"
   ## We need to run this as normal user but to avoiding this we using unsafe perm
@@ -69,4 +68,19 @@ NODEJS() {
 
   SETUP_SYSTEMD "$1"
 
+}
+
+MAVEN() {
+  HEAD "Install Maven"
+  yum install maven -y &>>/tmp/roboshop.log
+  STAT $?
+
+  APP_USER_ADD
+  DOWNLOAD_FROM_GITGUB $1
+
+  HEAD "Make Application Package"
+  cd /home/roboshop/$1/ && mvn clean package &>>/tmp/roboshop.log && mv target/$1-1.0.jar $1.jar >>/tmp/roboshop.log
+  STAT $?
+
+  SETUP_SYSTEMD "$1"
 }
