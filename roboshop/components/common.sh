@@ -44,7 +44,7 @@ STAT $?
 
 HEAD "Install NodeJs Dependencies\t"
 ## We need to run this as normal user but to avoiding this we using unsafe perm
-cd /home/roboshop/$1 &1 npm install --unsafe-perm &>>/tmp/roboshop.log
+cd /home/roboshop/$1 && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
 ## We are giving permissions to user by using command chown and -r represents recursively because its a directory and content  inside should change to this one
