@@ -7,6 +7,5 @@ set-hostname shipping
 
 MAVEN "shipping"
 
-APP_USER_ADD
 
 
