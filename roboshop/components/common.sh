@@ -39,12 +39,12 @@ STAT $?
 ## In this its unzipping the file and moving catalogue-main to catalogue, but catalogue dir is already there if you run for second time so by avoiding this we have to remove the content before executing
 
 HEAD "Extract the Downloaded Archive"
-cd /home/roboshop && rm -rf $! && unzip /tmp/$1.zip &>>/tmp/roboshop.log && mv $1-main $1
+cd /home/roboshop && rm -rf $1 && unzip /tmp/$1.zip &>>/tmp/roboshop.log && mv $1-main $1
 STAT $?
 
 HEAD "Install NodeJs Dependencies\t"
 ## We need to run this as normal user but to avoiding this we using unsafe perm
-cd /home/roboshop/$! &1 npm install --unsafe-perm &>>/tmp/roboshop.log
+cd /home/roboshop/$1 &1 npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
 ## We are giving permissions to user by using command chown and -r represents recursively because its a directory and content  inside should change to this one
