@@ -32,7 +32,8 @@ sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redi
 STAT $?
 
 HEAD "Start the $1 service\t"
-systemctl daemon-reload && systemctl start $1 &>>/tmp/roboshop.log && systemctl enable $1 &>>/tmp/roboshop.log
+systemctl daemon-reload && systemctl enable $1 &>>/tmp/roboshop.log && systemctl restart $1 &>>/tmp/roboshop.log
+
 STAT $?
 }
 NODEJS() {
