@@ -31,7 +31,7 @@ HEAD "SetUp the SyetemD service file"
 sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/$1/systemd.service  && mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
 STAT $?
 
-HEAD "Start the user service\t"
+HEAD "Start the $1 service\t"
 systemctl daemon-reload && systemctl start $1 &>>/tmp/roboshop.log && systemctl enable $1 &>>/tmp/roboshop.log
 STAT $?
 }
