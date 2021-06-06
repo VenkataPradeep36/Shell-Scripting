@@ -21,3 +21,11 @@ HEAD "Start MYSQL Service"
 systemctl enable mysqld &>>/tmp/roboshop.log && systemctl start mysqld &>>/tmp/roboshop.log
 STAT $?
 
+DEAFULT_ROOT=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';
+uninstall plugin validate_password;" >/tmp/db.sql
+
+HEAD "Reset MySQL Password"
+mysql -uroot -p"$(DEAFULT_ROOT)" <tmp/db.sql &>>tmp/roboshop.log
+STAT $?
+
