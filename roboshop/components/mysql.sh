@@ -32,3 +32,8 @@ if [ $? -ne 0 ]; then
   STAT $?
 fi
 
+DOWNLOAD_FROM_GITHUB mysql
+
+HEAD "Load Shipping Schema"
+cd /tmp && unzip -o mysql.zip &>>/tmp/roboshop.log && cd mysql-main && mysql -u root -pRoboShop@1  <shipping.sql &>>/tmp/roboshop.log
+STAT $?
