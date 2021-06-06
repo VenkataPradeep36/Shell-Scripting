@@ -31,3 +31,4 @@ if [$? -ne 0 ]; then
   mysql --connect-expired-password -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
   STAT $?
 fi
+
