@@ -17,7 +17,7 @@ HEAD "Install MYSQL Server"
 yum remove mariadb-libs -y &>>/tmp/roboshop.log && yum install mysql-community-server -y &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Start MYSQL Service"
+HEAD "Start MySQL Service"
 systemctl enable mysqld &>>/tmp/roboshop.log && systemctl start mysqld &>>/tmp/roboshop.log
 STAT $?
 
@@ -26,5 +26,5 @@ echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';
 uninstall plugin validate_password;" >/tmp/db.sql
 
 HEAD "Reset MYSQL Password"
-mysql -uroot -p"${DEF_PASS}" <tmp/db.sql &>>/tmp/roboshop.log
+mysql -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
 STAT $?
