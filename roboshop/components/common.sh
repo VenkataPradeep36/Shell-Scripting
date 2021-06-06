@@ -110,7 +110,7 @@ PYTHON3() {
 
   HEAD "Update App Configuration"
   sed -i -e "/uid/ c uid=${USER_ID}" -e "/gid/ c gid=${GROUP_ID}" /home/roboshop/$1/$1.ini
-  STAT $1
+  STAT $?
   SETUP_SYSTEMD "$1"
 
 }
