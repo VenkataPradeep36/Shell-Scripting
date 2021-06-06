@@ -6,7 +6,7 @@ rm -f /tmp/roboshop.log
 set-hostname rabbitmq
 
 HEAD "Install ERLANG"
-yum list installed | grep erlang
+yum list installed | grep erlang &>>/tmp/roboshop.log
 if [ $? -eq 0 ]; then
   echo "Erlang is already installed" &>>/tmp/roboshop.log
   STAT $?
@@ -28,7 +28,7 @@ systemctl enable rabbitmq-server &>>/tmp/roboshop.log && systemctl start rabbitm
 STAT $?
 
 HEAD "Create Application User"
-rabittmqctl list_users | grep roboshop  &>>/tmp/roboshop.log
+rabbitmqctl list_users | grep roboshop  &>>/tmp/roboshop.log
 if [ $? -eq 0 ]; then
   rabbitmqctl add_user roboshop roboshop123 &>>/tmp/roboshop.log
 fi
