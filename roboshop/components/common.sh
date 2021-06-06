@@ -95,7 +95,7 @@ MAVEN() {
 }
 
 PYTHON3() {
-  HEAD "Install POython3"
+  HEAD "Install Python3"
   yum install python36 gcc python3-devel -y &>>/tmp/roboshop.log
   STAT $?
 
