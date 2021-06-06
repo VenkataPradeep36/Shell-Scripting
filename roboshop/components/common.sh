@@ -50,6 +50,14 @@ DOWNLOAD_FROM_GITGUB() {
   STAT $?
 }
 
+FIX_APP_CONTENT_PERM() {
+    ## We are giving permissions to user by using command chown and -r represents recursively because its a directory and content  inside should change to this one
+  HEAD "Fix permissions to Appp User\t"
+  chown roboshop:roboshop /home/roboshop -R
+  STAT $?
+
+}
+
 NODEJS() {
   HEAD "Install NodeJs\t\t\t"
   yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
@@ -65,11 +73,7 @@ NODEJS() {
   cd /home/roboshop/$1 && npm install --unsafe-perm &>>/tmp/roboshop.log
   STAT $?
 
-  ## We are giving permissions to user by using command chown and -r represents recursively because its a directory and content  inside should change to this one
-  HEAD "Fix permissions to Appp User\t"
-  chown roboshop:roboshop /home/roboshop -R
-  STAT $?
-
+  FIX_APP_CONTENT_PERM
   SETUP_SYSTEMD "$1"
 
 }
@@ -86,5 +90,21 @@ MAVEN() {
   cd /home/roboshop/$1/ && mvn clean package &>>/tmp/roboshop.log && mv target/$1-1.0.jar $1.jar >>/tmp/roboshop.log
   STAT $?
 
+  FIX_APP_CONTENT_PERM
   SETUP_SYSTEMD "$1"
+}
+
+PYTHON3() {
+  HEAD "Install POython3"
+  yum install python36 gcc python3-devel -y &>>/tmp/roboshop.log
+  STAT $?
+
+  APP_USER_ADD
+  DOWNLOAD_FROM_GITGUB $1
+
+  HEAD "Install Python Dependencies"
+  cd /home/roboshop/$1 && pip3 install -r requirements.txt &>>/tmp/roboshop.log
+  STAT $?
+
+
 }
