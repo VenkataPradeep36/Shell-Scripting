@@ -15,18 +15,17 @@ STAT() {
 
 APP_USER_ADD() {
   HEAD "Add RoboShop App USer\t\t"
-id roboshop &>>/tmp/roboshop.log
-if [ $? -eq 0 ]; then
-  echo User is already there, so not creating user &>>/tmp/roboshop.log
-  STAT $?
-else
-  useradd roboshop &>>/tmp/roboshop.log
-  STAT $?
-fi
-
+  id roboshop &>>/tmp/roboshop.log
+  if [ $? -eq 0 ]; then
+    echo User is already there, so not creating user &>>/tmp/roboshop.log
+    STAT $?
+  else
+    useradd roboshop &>>/tmp/roboshop.log
+    STAT $?
+  fi
 }
 NODEJS() {
-  HEAD "Install NodeJs\t\t\t"
+HEAD "Install NodeJs\t\t\t"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
@@ -58,7 +57,7 @@ sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/$1/systemd
 STAT $?
 
 HEAD "Start the catalogue service\t"
-systemctl daemon-reload && systemctl start catalogue &>>/tmp/roboshop.log && systemctl enable catalogue &>>/tmp/roboshop.log
+systemctl daemon-reload && systemctl start $1 &>>/tmp/roboshop.log && systemctl enable $1 &>>/tmp/roboshop.log
 STAT $?
 
 }
