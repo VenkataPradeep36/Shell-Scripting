@@ -9,6 +9,6 @@ done
 
 
 for Language in Java Python Go ; do
-  echo Language name =$Languages
+  echo Language name = $Languages
   sleep 1
 done
