@@ -17,20 +17,31 @@ DNS_UPDATE() {
   aws route53 change-resource-record-sets --hosted-zone-id Z00392432B47AFBZ92BGI --change-batch file:///tmp/record.json | jq
 }
 
-## Validate If Instance is already there
+INSTANCE_CREATE() {
+  ## Validate If Instance is already there
 INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"  | jq .Reservations[].Instances[].State.Name | xargs -n1)
 
 if [ "${INSTANCE_STATE}" = "running" ]; then
   echo "Instance already exists!!"
   DNS_UPDATE
-  exit 0
+  return 0
 fi
 
 if [ "${INSTANCE_STATE}" = "stopped" ]; then
   echo "Instance already exists!!"
-  exit 0
+  return 0
 fi
 
 aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
-sleep 30
+sleep 10
 DNS_UPDATE
+}
+
+if [ "${component}" == "all" ]; then
+  for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
+    COMPONENT = $component
+    INSTANCE_CREATE
+  done
+else
+    INSTANCE_CREATE
+fi
