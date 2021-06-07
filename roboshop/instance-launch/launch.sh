@@ -8,8 +8,8 @@ if [ -z "${COMPONENT}" ]; then
   exit 1
 fi
 
-LID=lt-097af092577036105
-LVER=1
+LID=lt-0c95879a21fb6edbf
+LVER=2
 
 DNS_UPDATE() {
   PRIVATEIP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"  | jq .Reservations[].Instances[].PrivateIpAddress | xargs -n1)
