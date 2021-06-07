@@ -32,7 +32,21 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
   return 0
 fi
 
-aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
+aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq | grep  PrivateIpAddress  |xargs -n1
+  sleep 10
+  DNS_UPDATE
+}
+
+if [ "${1}" == "all" ]; then
+  for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
+    COMPONENT=$component
+    INSTANCE_CREATE
+  done
+else
+  COMPONENT=$1
+  INSTANCE_CREATE
+fi
+
 sleep 10
 DNS_UPDATE
 }
