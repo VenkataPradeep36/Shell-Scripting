@@ -49,3 +49,8 @@ else
     COMPONENT=$1
     INSTANCE_CREATE
 fi
+
+## To Execute all instances at a time
+## for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
+#	ssh $component.roboshop.internal "git clone https://github.com/venkatapradeep36/shell-scripting ; cd shell-scripting/roboshop ; sudo make $component"
+#done
