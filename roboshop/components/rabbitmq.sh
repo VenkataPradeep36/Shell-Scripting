@@ -29,7 +29,7 @@ STAT $?
 
 HEAD "Create Application User"
 rabbitmqctl list_users | grep roboshop  &>>/tmp/roboshop.log
-if [ $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   rabbitmqctl add_user roboshop roboshop123 &>>/tmp/roboshop.log
 fi
 rabbitmqctl set_user_tags roboshop administrator &>>/tmp/roboshop.log && rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>/tmp/roboshop.log
