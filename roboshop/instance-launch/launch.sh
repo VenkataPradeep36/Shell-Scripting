@@ -38,8 +38,7 @@ aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER} 
   DNS_UPDATE
 }
 
-
-
+## For creating just instatnces at a time
 if [ "${1}" == "all" ]; then
   for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
     COMPONENT=$component
@@ -50,7 +49,7 @@ else
     INSTANCE_CREATE
 fi
 
-## To Execute all instances at a time
+## To Execute all instances at a time and deploying code
 ## for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
 #	ssh $component.roboshop.internal "git clone https://github.com/venkatapradeep36/shell-scripting ; cd shell-scripting/roboshop ; sudo make $component"
 #done
