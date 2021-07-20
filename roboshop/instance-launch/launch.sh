@@ -8,7 +8,7 @@ if [ -z "${COMPONENT}" ]; then
   exit 1
 fi
 
-LID=ami-074df373d6bafa625
+LID=lt-0c95879a21fb6edbf
 LVER=4
 
 DNS_UPDATE() {
